@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="VRS.AdminApp.View.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VRS.AdminApp.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="using:VRS.AdminApp.Model"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListView Name="rentsListView"  Grid.Row="2"  IsItemClickEnabled="False">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock FontSize="16" Text="Client" VerticalAlignment="Center" Grid.Column="0" />
+                    <TextBlock FontSize="16" Text="Price" VerticalAlignment="Center" Grid.Column="1" />
+                    <TextBlock FontSize="16" Text="Start" VerticalAlignment="Center" Grid.Column="2" />
+                    <TextBlock FontSize="16" Text="End" VerticalAlignment="Center" Grid.Column="3" />
+                    <TextBlock FontSize="16" Text="Vehicle" VerticalAlignment="Center" Grid.Column="4" />
+                </Grid>
+            </ListView.Header>
+            
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:Rent">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontSize="16" Text="{x:Bind ClientId}" VerticalAlignment="Center" Grid.Column="0" />
+                        <TextBlock FontSize="16" Text="{x:Bind Price}" VerticalAlignment="Center" Grid.Column="1" />
+                        <TextBlock FontSize="16" Text="{x:Bind StartDate}" VerticalAlignment="Center" Grid.Column="2" />
+                        <TextBlock FontSize="16" Text="{x:Bind FinishDate}" VerticalAlignment="Center" Grid.Column="3" />
+                        <TextBlock FontSize="16" Text="{x:Bind VehicleId}" VerticalAlignment="Center" Grid.Column="4" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
