@@ -30,7 +30,7 @@ namespace VRS.AdminApp
             this.InitializeComponent();
             background.Background = new ImageBrush {
                 ImageSource = new BitmapImage(new Uri(this.BaseUri, "Assets/login_background.jpg")),
-                Stretch = Stretch.Uniform
+                Stretch = Stretch.None
             };
 
             panel.Background = new SolidColorBrush(Color.FromArgb(80, 255, 255, 255));

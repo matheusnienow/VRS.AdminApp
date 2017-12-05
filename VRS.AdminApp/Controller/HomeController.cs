@@ -11,10 +11,28 @@ namespace VRS.AdminApp.Controller
 {
     class HomeController : BaseController
     {
-        internal List<Rent> GetRents()
+        async internal Task<IEnumerable<Rent>> GetRents()
         {
-            var result = service.GetRentsAsync().Result;
-            return result.Select(x => new Rent(x)).ToList();
+            var result = await service.GetRentsAsync();
+            return result.Select(x => new Rent(x));
+        }
+
+        async internal Task<IEnumerable<Client>> GetClients()
+        {
+            var result = await service.GetClientsAsync();
+            return result.Select(x => new Client(x));
+        }
+
+        async internal Task<IEnumerable<Vehicle>> GetVehicles()
+        {
+            var result = await service.GetVehiclesAsync();
+            return result.Select(x => new Vehicle(x));
+        }
+
+        async internal Task<IEnumerable<User>> GetUsers()
+        {
+            var result = await service.GetUsersAsync();
+            return result.Select(x => new User(x));
         }
     }
 }

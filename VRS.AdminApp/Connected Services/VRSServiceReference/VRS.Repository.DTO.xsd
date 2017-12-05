@@ -5,19 +5,11 @@
       <xs:element minOccurs="0" name="Hash" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Role" nillable="true" type="tns:RoleDTO" />
       <xs:element minOccurs="0" name="RoleId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="Salt" nillable="true" type="xs:base64Binary" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UserDTO" nillable="true" type="tns:UserDTO" />
-  <xs:complexType name="RoleDTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="RoleDTO" nillable="true" type="tns:RoleDTO" />
   <xs:complexType name="ArrayOfRentDTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="RentDTO" nillable="true" type="tns:RentDTO" />
@@ -71,4 +63,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfUserDTO" nillable="true" type="tns:ArrayOfUserDTO" />
+  <xs:complexType name="ArrayOfClientDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClientDTO" nillable="true" type="tns:ClientDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClientDTO" nillable="true" type="tns:ArrayOfClientDTO" />
+  <xs:complexType name="ArrayOfVehicleDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VehicleDTO" nillable="true" type="tns:VehicleDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehicleDTO" nillable="true" type="tns:ArrayOfVehicleDTO" />
 </xs:schema>

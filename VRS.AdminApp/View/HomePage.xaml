@@ -9,50 +9,194 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView Name="rentsListView"  Grid.Row="2"  IsItemClickEnabled="False">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                </Style>
-            </ListView.ItemContainerStyle>
 
-            <ListView.Header>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock FontSize="16" Text="Client" VerticalAlignment="Center" Grid.Column="0" />
-                    <TextBlock FontSize="16" Text="Price" VerticalAlignment="Center" Grid.Column="1" />
-                    <TextBlock FontSize="16" Text="Start" VerticalAlignment="Center" Grid.Column="2" />
-                    <TextBlock FontSize="16" Text="End" VerticalAlignment="Center" Grid.Column="3" />
-                    <TextBlock FontSize="16" Text="Vehicle" VerticalAlignment="Center" Grid.Column="4" />
-                </Grid>
-            </ListView.Header>
-            
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="model:Rent">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock FontSize="16" Text="{x:Bind ClientId}" VerticalAlignment="Center" Grid.Column="0" />
-                        <TextBlock FontSize="16" Text="{x:Bind Price}" VerticalAlignment="Center" Grid.Column="1" />
-                        <TextBlock FontSize="16" Text="{x:Bind StartDate}" VerticalAlignment="Center" Grid.Column="2" />
-                        <TextBlock FontSize="16" Text="{x:Bind FinishDate}" VerticalAlignment="Center" Grid.Column="3" />
-                        <TextBlock FontSize="16" Text="{x:Bind VehicleId}" VerticalAlignment="Center" Grid.Column="4" />
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Pivot x:Name="rootPivot" Title="ADMIN APP" SelectionChanged="RootPivot_SelectionChanged">
+            <PivotItem Header="Rents">
+                <ListView Name="rentsListView"  Grid.Row="2"  IsItemClickEnabled="True" ItemClick="RentsListView_ItemClick" Margin="0,0,0,10">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+
+                    <ListView.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="16" Text="Client Id" VerticalAlignment="Center" Grid.Column="0" />
+                            <TextBlock FontSize="16" Text="Price (EUR)" VerticalAlignment="Center" Grid.Column="1" />
+                            <TextBlock FontSize="16" Text="Start" VerticalAlignment="Center" Grid.Column="2" />
+                            <TextBlock FontSize="16" Text="End" VerticalAlignment="Center" Grid.Column="3" />
+                            <TextBlock FontSize="16" Text="Vehicle Id" VerticalAlignment="Center" Grid.Column="4" />
+                        </Grid>
+                    </ListView.Header>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Rent">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock FontSize="16" Text="{x:Bind ClientId}" VerticalAlignment="Center" Grid.Column="0" />
+                                <TextBlock FontSize="16" Text="{x:Bind Price}" VerticalAlignment="Center" Grid.Column="1" />
+                                <TextBlock FontSize="16" Text="{x:Bind StartDate}" VerticalAlignment="Center" Grid.Column="2" />
+                                <TextBlock FontSize="16" Text="{x:Bind FinishDate}" VerticalAlignment="Center" Grid.Column="3" />
+                                <TextBlock FontSize="16" Text="{x:Bind VehicleId}" VerticalAlignment="Center" Grid.Column="4" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </PivotItem>
+            <PivotItem Header="Clients">
+                <ListView Name="clientsListView"  Grid.Row="2"  IsItemClickEnabled="False" Margin="0,0,0,10">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+
+                    <ListView.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="16" Text="Client Id" VerticalAlignment="Center" Grid.Column="0" />
+                            <TextBlock FontSize="16" Text="Name" VerticalAlignment="Center" Grid.Column="1" />
+                            <TextBlock FontSize="16" Text="Surname" VerticalAlignment="Center" Grid.Column="2" />
+                            <TextBlock FontSize="16" Text="Phone" VerticalAlignment="Center" Grid.Column="3" />
+                            <TextBlock FontSize="16" Text="City" VerticalAlignment="Center" Grid.Column="4" />
+                            <TextBlock FontSize="16" Text="Birth Date" VerticalAlignment="Center" Grid.Column="5" />
+                            <TextBlock FontSize="16" Text="User Id" VerticalAlignment="Center" Grid.Column="6" />
+                        </Grid>
+                    </ListView.Header>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Client">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock FontSize="16" Text="{x:Bind Id}" VerticalAlignment="Center" Grid.Column="0" />
+                                <TextBlock FontSize="16" Text="{x:Bind Name}" VerticalAlignment="Center" Grid.Column="1" />
+                                <TextBlock FontSize="16" Text="{x:Bind Surname}" VerticalAlignment="Center" Grid.Column="2" />
+                                <TextBlock FontSize="16" Text="{x:Bind Phone}" VerticalAlignment="Center" Grid.Column="3" />
+                                <TextBlock FontSize="16" Text="{x:Bind City}" VerticalAlignment="Center" Grid.Column="4" />
+                                <TextBlock FontSize="16" Text="{x:Bind BirthDate}" VerticalAlignment="Center" Grid.Column="5" />
+                                <TextBlock FontSize="16" Text="{x:Bind UserId}" VerticalAlignment="Center" Grid.Column="6" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </PivotItem>
+            <PivotItem Header="Vehicles">
+                <ListView Name="vehilesListView"  Grid.Row="2"  IsItemClickEnabled="False" Margin="0,0,0,10">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+
+                    <ListView.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="16" Text="Id" VerticalAlignment="Center" Grid.Column="0" />
+                            <TextBlock FontSize="16" Text="Description" VerticalAlignment="Center" Grid.Column="1" />
+                            <TextBlock FontSize="16" Text="Plate" VerticalAlignment="Center" Grid.Column="2" />
+                            <TextBlock FontSize="16" Text="Mileage (Km)" VerticalAlignment="Center" Grid.Column="3" />
+                            <TextBlock FontSize="16" Text="In use" VerticalAlignment="Center" Grid.Column="4" />
+                            <TextBlock FontSize="16" Text="Vehicle Model" VerticalAlignment="Center" Grid.Column="5" />
+                        </Grid>
+                    </ListView.Header>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Vehicle">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock FontSize="16" Text="{x:Bind Id}" VerticalAlignment="Center" Grid.Column="0" />
+                                <TextBlock FontSize="16" Text="{x:Bind Description}" VerticalAlignment="Center" Grid.Column="1" />
+                                <TextBlock FontSize="16" Text="{x:Bind Plate}" VerticalAlignment="Center" Grid.Column="2" />
+                                <TextBlock FontSize="16" Text="{x:Bind Mileage}" VerticalAlignment="Center" Grid.Column="3" />
+                                <TextBlock FontSize="16" Text="{x:Bind InUse}" VerticalAlignment="Center" Grid.Column="4" />
+                                <TextBlock FontSize="16" Text="{x:Bind VehicleModelId}" VerticalAlignment="Center" Grid.Column="5" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </PivotItem>
+            <PivotItem Header="Users">
+                <ListView Name="usersListView"  Grid.Row="2"  IsItemClickEnabled="False" Margin="0,0,0,10">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+
+                    <ListView.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock FontSize="16" Text="Id" VerticalAlignment="Center" Grid.Column="0" />
+                            <TextBlock FontSize="16" Text="Login" VerticalAlignment="Center" Grid.Column="1" />
+                            <TextBlock FontSize="16" Text="Role Id" VerticalAlignment="Center" Grid.Column="2" />
+                        </Grid>
+                    </ListView.Header>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model:User">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock FontSize="16" Text="{x:Bind Id}" VerticalAlignment="Center" Grid.Column="0" />
+                                <TextBlock FontSize="16" Text="{x:Bind Login}" VerticalAlignment="Center" Grid.Column="1" />
+                                <TextBlock FontSize="16" Text="{x:Bind RoleId}" VerticalAlignment="Center" Grid.Column="2" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </PivotItem>
+        </Pivot>
     </Grid>
 </Page>

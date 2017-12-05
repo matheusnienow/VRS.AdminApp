@@ -103,7 +103,10 @@
     <Compile Include="Controller\BaseController.cs" />
     <Compile Include="Controller\HomeController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Model\Client.cs" />
     <Compile Include="Model\Rent.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Vehicle.cs" />
     <Compile Include="View\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -123,10 +126,16 @@
     <None Include="Connected Services\VRSServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\VRSServiceReference\VRS.AdminApp.VRSServiceReference.ClientDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\VRSServiceReference\VRS.AdminApp.VRSServiceReference.RentDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VRSServiceReference\VRS.AdminApp.VRSServiceReference.UserDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\VRSServiceReference\VRS.AdminApp.VRSServiceReference.VehicleDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VRSServiceReference\VRS.Repository.DTO.xsd">

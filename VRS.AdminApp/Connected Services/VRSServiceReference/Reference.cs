@@ -26,8 +26,6 @@ namespace VRS.AdminApp.VRSServiceReference {
         
         private string LoginField;
         
-        private VRS.AdminApp.VRSServiceReference.RoleDTO RoleField;
-        
         private System.Nullable<int> RoleIdField;
         
         private byte[] SaltField;
@@ -72,19 +70,6 @@ namespace VRS.AdminApp.VRSServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public VRS.AdminApp.VRSServiceReference.RoleDTO Role {
-            get {
-                return this.RoleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RoleField, value) != true)) {
-                    this.RoleField = value;
-                    this.RaisePropertyChanged("Role");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> RoleId {
             get {
                 return this.RoleIdField;
@@ -106,51 +91,6 @@ namespace VRS.AdminApp.VRSServiceReference {
                 if ((object.ReferenceEquals(this.SaltField, value) != true)) {
                     this.SaltField = value;
                     this.RaisePropertyChanged("Salt");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RoleDTO", Namespace="http://schemas.datacontract.org/2004/07/VRS.Repository.DTO")]
-    public partial class RoleDTO : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int IdField;
-        
-        private string NameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
                 }
             }
         }
@@ -612,6 +552,12 @@ namespace VRS.AdminApp.VRSServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUsers", ReplyAction="http://tempuri.org/IService/GetUsersResponse")]
         System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<VRS.AdminApp.VRSServiceReference.UserDTO>> GetUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetClients", ReplyAction="http://tempuri.org/IService/GetClientsResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<VRS.AdminApp.VRSServiceReference.ClientDTO>> GetClientsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetVehicles", ReplyAction="http://tempuri.org/IService/GetVehiclesResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<VRS.AdminApp.VRSServiceReference.VehicleDTO>> GetVehiclesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -667,6 +613,14 @@ namespace VRS.AdminApp.VRSServiceReference {
         
         public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<VRS.AdminApp.VRSServiceReference.UserDTO>> GetUsersAsync() {
             return base.Channel.GetUsersAsync();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<VRS.AdminApp.VRSServiceReference.ClientDTO>> GetClientsAsync() {
+            return base.Channel.GetClientsAsync();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<VRS.AdminApp.VRSServiceReference.VehicleDTO>> GetVehiclesAsync() {
+            return base.Channel.GetVehiclesAsync();
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

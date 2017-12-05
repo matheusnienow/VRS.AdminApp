@@ -25,6 +25,18 @@
   <wsdl:message name="IService_GetUsers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUsersResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClients" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetVehicles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicles" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetVehicles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehiclesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="VerifyUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/VerifyUser" message="tns:IService_VerifyUser_InputMessage" />
@@ -37,6 +49,14 @@
     <wsdl:operation name="GetUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUsers" message="tns:IService_GetUsers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUsersResponse" message="tns:IService_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetClients" message="tns:IService_GetClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetClientsResponse" message="tns:IService_GetClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetVehicles" message="tns:IService_GetVehicles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetVehiclesResponse" message="tns:IService_GetVehicles_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -61,6 +81,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetUsers">
       <soap:operation soapAction="http://tempuri.org/IService/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClients">
+      <soap:operation soapAction="http://tempuri.org/IService/GetClients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicles">
+      <soap:operation soapAction="http://tempuri.org/IService/GetVehicles" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
