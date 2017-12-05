@@ -34,5 +34,11 @@ namespace VRS.AdminApp.Controller
             var result = await service.GetUsersAsync();
             return result.Select(x => new User(x));
         }
+        async internal Task<bool> FinishRent(Rent rent)
+        {
+            rent.Finished = true;
+            var result = await service.FinishRentAsync(rent.Id);
+            return result.Successful;
+        }
     }
 }

@@ -21,6 +21,7 @@
       <xs:element minOccurs="0" name="Client" nillable="true" type="tns:ClientDTO" />
       <xs:element minOccurs="0" name="ClientId" type="xs:int" />
       <xs:element minOccurs="0" name="FinishDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Finished" type="xs:boolean" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Price" nillable="true" type="xs:double" />
       <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />

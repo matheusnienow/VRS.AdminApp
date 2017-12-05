@@ -15,6 +15,7 @@ namespace VRS.AdminApp.Model
         public DateTime StartDate { get; set; }
         public DateTime? FinishDate { get; set; }
         public double? Price { get; set; }
+        public bool Finished { get; set; }
 
         public Rent(RentDTO dto)
         {
@@ -24,6 +25,7 @@ namespace VRS.AdminApp.Model
             StartDate = dto.StartDate;
             FinishDate = dto.FinishDate;
             Price = dto.Price;
+            Finished = dto.Finished;
         }
         
     }

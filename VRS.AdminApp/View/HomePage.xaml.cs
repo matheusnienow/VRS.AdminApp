@@ -101,15 +101,45 @@ namespace VRS.AdminApp.View
 
         private async void RentsListView_ItemClick(object sender, ItemClickEventArgs e)
         {
+            Rent rent = e.ClickedItem as Rent;
+            if (rent.Finished)
+            {
+                return;
+            }
+
             ContentDialog noWifiDialog = new ContentDialog
             {
                 Title = "Finish rental?",
-                Content = "This will register the car as available.",
+                Content = "This will register the car as available and the rent as finished.",
                 CloseButtonText = "Cancel",
                 PrimaryButtonText = "Yes"
             };
 
             ContentDialogResult result = await noWifiDialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                rent.Finished = true;
+                var success = await controller.FinishRent(rent);
+                var title = "Rent finished";
+                var content = "The rent is finished";
+                if (!success)
+                {
+                    title = "An error ocurred";
+                    content = "An error occured trying to finish the rent. Try again.";
+                    rent.Finished = false;
+                }
+
+                rentsListView.ItemsSource = null;
+                rentsListView.ItemsSource = rents;
+
+                ContentDialog errorDialog = new ContentDialog
+                {
+                    Title = title,
+                    Content = content,
+                    CloseButtonText = "Ok"
+                };
+                await errorDialog.ShowAsync();
+            }
         }
     }
 }

@@ -9,9 +9,9 @@ namespace VRS.AdminApp.Controller
 {
     class LoginController : BaseController
     {
-        internal bool VerifyUser(string username, string password)
+        async internal Task<bool> VerifyUser(string username, string password)
         {
-            var user = service.VerifyUserAsync(username, password).Result;
+            var user = await service.VerifyUserAsync(username, password);
             if (user != null && user.RoleId == 1)//verify admin role
             {
                 return true;

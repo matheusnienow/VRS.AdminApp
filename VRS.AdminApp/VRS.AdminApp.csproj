@@ -132,6 +132,9 @@
     <None Include="Connected Services\VRSServiceReference\VRS.AdminApp.VRSServiceReference.RentDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\VRSServiceReference\VRS.AdminApp.VRSServiceReference.Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\VRSServiceReference\VRS.AdminApp.VRSServiceReference.UserDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -139,6 +142,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\VRSServiceReference\VRS.Repository.DTO.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\VRSServiceReference\VRS.WebApi.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />

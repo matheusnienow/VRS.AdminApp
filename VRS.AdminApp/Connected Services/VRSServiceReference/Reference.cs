@@ -116,6 +116,8 @@ namespace VRS.AdminApp.VRSServiceReference {
         
         private System.Nullable<System.DateTime> FinishDateField;
         
+        private bool FinishedField;
+        
         private int IdField;
         
         private System.Nullable<double> PriceField;
@@ -161,6 +163,19 @@ namespace VRS.AdminApp.VRSServiceReference {
                 if ((this.FinishDateField.Equals(value) != true)) {
                     this.FinishDateField = value;
                     this.RaisePropertyChanged("FinishDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Finished {
+            get {
+                return this.FinishedField;
+            }
+            set {
+                if ((this.FinishedField.Equals(value) != true)) {
+                    this.FinishedField = value;
+                    this.RaisePropertyChanged("Finished");
                 }
             }
         }
@@ -540,6 +555,51 @@ namespace VRS.AdminApp.VRSServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Result", Namespace="http://schemas.datacontract.org/2004/07/VRS.WebApi")]
+    public partial class Result : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string MessageField;
+        
+        private bool SuccessfulField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Successful {
+            get {
+                return this.SuccessfulField;
+            }
+            set {
+                if ((this.SuccessfulField.Equals(value) != true)) {
+                    this.SuccessfulField = value;
+                    this.RaisePropertyChanged("Successful");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="VRSServiceReference.IService")]
     public interface IService {
@@ -558,6 +618,9 @@ namespace VRS.AdminApp.VRSServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetVehicles", ReplyAction="http://tempuri.org/IService/GetVehiclesResponse")]
         System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<VRS.AdminApp.VRSServiceReference.VehicleDTO>> GetVehiclesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/FinishRent", ReplyAction="http://tempuri.org/IService/FinishRentResponse")]
+        System.Threading.Tasks.Task<VRS.AdminApp.VRSServiceReference.Result> FinishRentAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -621,6 +684,10 @@ namespace VRS.AdminApp.VRSServiceReference {
         
         public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<VRS.AdminApp.VRSServiceReference.VehicleDTO>> GetVehiclesAsync() {
             return base.Channel.GetVehiclesAsync();
+        }
+        
+        public System.Threading.Tasks.Task<VRS.AdminApp.VRSServiceReference.Result> FinishRentAsync(int id) {
+            return base.Channel.FinishRentAsync(id);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

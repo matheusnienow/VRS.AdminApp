@@ -42,7 +42,7 @@ namespace VRS.AdminApp
 
         }
 
-        private void BtLogin_Click(object sender, RoutedEventArgs e)
+        private async void BtLogin_Click(object sender, RoutedEventArgs e)
         {
             tbError.Text = "";
 
@@ -55,7 +55,7 @@ namespace VRS.AdminApp
                 return;
             }
 
-            var authenticated = controller.VerifyUser(username, password);
+            var authenticated = await controller.VerifyUser(username, password);
             if (!authenticated)
             {
                 tbError.Text = "Authentication failed";

@@ -28,6 +28,7 @@
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="92a14642-06cb-41b9-aeb6-6961524f2c09" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/VRS.WebApi/Service1/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="f38b9151-6d67-4dec-89f8-0e20f4117425" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/VRS.WebApi/Service1/mex" />
     <MetadataFile FileName="VRS.Repository.DTO.xsd" MetadataType="Schema" ID="3f7e1334-60f9-4203-9b95-ca19d2ef53bb" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/VRS.WebApi/Service1/mex" />
+    <MetadataFile FileName="VRS.WebApi.xsd" MetadataType="Schema" ID="22919264-e0de-4b99-b302-ca7d74546bc8" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/VRS.WebApi/Service1/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

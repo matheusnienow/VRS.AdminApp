@@ -28,12 +28,14 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="20"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock FontSize="16" Text="Client Id" VerticalAlignment="Center" Grid.Column="0" />
                             <TextBlock FontSize="16" Text="Price (EUR)" VerticalAlignment="Center" Grid.Column="1" />
                             <TextBlock FontSize="16" Text="Start" VerticalAlignment="Center" Grid.Column="2" />
                             <TextBlock FontSize="16" Text="End" VerticalAlignment="Center" Grid.Column="3" />
                             <TextBlock FontSize="16" Text="Vehicle Id" VerticalAlignment="Center" Grid.Column="4" />
+                            <TextBlock FontSize="16" Text="Finished" VerticalAlignment="Center" Grid.Column="5" />
                         </Grid>
                     </ListView.Header>
 
@@ -47,12 +49,14 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="20"/>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock FontSize="16" Text="{x:Bind ClientId}" VerticalAlignment="Center" Grid.Column="0" />
                                 <TextBlock FontSize="16" Text="{x:Bind Price}" VerticalAlignment="Center" Grid.Column="1" />
                                 <TextBlock FontSize="16" Text="{x:Bind StartDate}" VerticalAlignment="Center" Grid.Column="2" />
                                 <TextBlock FontSize="16" Text="{x:Bind FinishDate}" VerticalAlignment="Center" Grid.Column="3" />
                                 <TextBlock FontSize="16" Text="{x:Bind VehicleId}" VerticalAlignment="Center" Grid.Column="4" />
+                                <TextBlock FontSize="16" Text="{x:Bind Finished}" VerticalAlignment="Center" Grid.Column="5" />
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -197,6 +201,11 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </PivotItem>
+            <Pivot.RightHeader>
+                <CommandBar OverflowButtonVisibility="Collapsed" Background="Transparent">
+                    <AppBarButton Icon="Add"/>
+                </CommandBar>
+            </Pivot.RightHeader>
         </Pivot>
     </Grid>
 </Page>
