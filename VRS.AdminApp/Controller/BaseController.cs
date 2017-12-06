@@ -2,7 +2,7 @@
 
 namespace VRS.AdminApp.Controller
 {
-    abstract class BaseController
+    public abstract class BaseController
     {
         protected ServiceClient service;
 

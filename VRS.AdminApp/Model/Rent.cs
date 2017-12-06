@@ -27,6 +27,24 @@ namespace VRS.AdminApp.Model
             Price = dto.Price;
             Finished = dto.Finished;
         }
+
+        internal RentDTO ToDto()
+        {
+            var dto = new RentDTO();
+            dto.Id = Id;
+            dto.ClientId = ClientId;
+            dto.FinishDate = FinishDate;
+            dto.Finished = Finished;
+            dto.VehicleId = VehicleId;
+            dto.Price = Price;
+            dto.StartDate = StartDate;
+            return dto;
+        }
+
+        public Rent()
+        {
+
+        }
         
     }
 }

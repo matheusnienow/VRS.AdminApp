@@ -53,6 +53,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetClientsForName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientsForNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/VRS.Repository.DTO" minOccurs="0" name="GetClientsForNameResult" nillable="true" type="q5:ArrayOfClientDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetVehicles">
     <xs:complexType>
       <xs:sequence />
@@ -61,7 +75,7 @@
   <xs:element name="GetVehiclesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/VRS.Repository.DTO" minOccurs="0" name="GetVehiclesResult" nillable="true" type="q5:ArrayOfVehicleDTO" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/VRS.Repository.DTO" minOccurs="0" name="GetVehiclesResult" nillable="true" type="q6:ArrayOfVehicleDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -75,7 +89,21 @@
   <xs:element name="FinishRentResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/VRS.WebApi" minOccurs="0" name="FinishRentResult" nillable="true" type="q6:Result" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/VRS.WebApi" minOccurs="0" name="FinishRentResult" nillable="true" type="q7:Result" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/VRS.Repository.DTO" minOccurs="0" name="rent" nillable="true" type="q8:RentDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/VRS.WebApi" minOccurs="0" name="CreateRentResult" nillable="true" type="q9:Result" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

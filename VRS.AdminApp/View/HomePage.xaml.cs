@@ -28,11 +28,13 @@ namespace VRS.AdminApp.View
         ObservableCollection<User> users;
         ObservableCollection<Vehicle> vehicles;
         ObservableCollection<Client> clients;
+        TabType currentTab;
 
         public HomePage()
         {
             this.InitializeComponent();
             controller = new HomeController();
+            currentTab = TabType.Rents;
         }
 
         private void RootPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -42,14 +44,18 @@ namespace VRS.AdminApp.View
             {
                 case "Rents":
                      LoadRents(false);
+                    currentTab = TabType.Rents;
                     break;
                 case "Users":
                     LoadUsers(false);
+                    currentTab = TabType.Users;
                     break;
                 case "Vehicles":
                     LoadVehicles(false);
+                    currentTab = TabType.Vehicles;
                     break;
                 case "Clients":
+                    currentTab = TabType.Clients;
                     LoadClients(false);
                     break;
             }
@@ -140,6 +146,36 @@ namespace VRS.AdminApp.View
                 };
                 await errorDialog.ShowAsync();
             }
+        }
+
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentTab == TabType.Rents)
+            {
+                LoadRents(true);
+            } else if (currentTab == TabType.Vehicles)
+            {
+                LoadVehicles(true);
+            }
+            else if (currentTab == TabType.Users)
+            {
+                LoadUsers(true);
+            }
+            else if (currentTab == TabType.Clients)
+            {
+                LoadClients(true);
+            }
+        }
+
+        private void VehilesListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Vehicle vehicle = e.ClickedItem as Vehicle;
+            if (vehicle.InUse)
+            {
+                return;
+            }
+
+            Frame.Navigate(typeof(CreateRentPage), vehicle);
         }
     }
 }

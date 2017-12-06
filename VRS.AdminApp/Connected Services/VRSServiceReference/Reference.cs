@@ -616,11 +616,17 @@ namespace VRS.AdminApp.VRSServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetClients", ReplyAction="http://tempuri.org/IService/GetClientsResponse")]
         System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<VRS.AdminApp.VRSServiceReference.ClientDTO>> GetClientsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetClientsForName", ReplyAction="http://tempuri.org/IService/GetClientsForNameResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<VRS.AdminApp.VRSServiceReference.ClientDTO>> GetClientsForNameAsync(string clientName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetVehicles", ReplyAction="http://tempuri.org/IService/GetVehiclesResponse")]
         System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<VRS.AdminApp.VRSServiceReference.VehicleDTO>> GetVehiclesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/FinishRent", ReplyAction="http://tempuri.org/IService/FinishRentResponse")]
         System.Threading.Tasks.Task<VRS.AdminApp.VRSServiceReference.Result> FinishRentAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/CreateRent", ReplyAction="http://tempuri.org/IService/CreateRentResponse")]
+        System.Threading.Tasks.Task<VRS.AdminApp.VRSServiceReference.Result> CreateRentAsync(VRS.AdminApp.VRSServiceReference.RentDTO rent);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -682,12 +688,20 @@ namespace VRS.AdminApp.VRSServiceReference {
             return base.Channel.GetClientsAsync();
         }
         
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<VRS.AdminApp.VRSServiceReference.ClientDTO>> GetClientsForNameAsync(string clientName) {
+            return base.Channel.GetClientsForNameAsync(clientName);
+        }
+        
         public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<VRS.AdminApp.VRSServiceReference.VehicleDTO>> GetVehiclesAsync() {
             return base.Channel.GetVehiclesAsync();
         }
         
         public System.Threading.Tasks.Task<VRS.AdminApp.VRSServiceReference.Result> FinishRentAsync(int id) {
             return base.Channel.FinishRentAsync(id);
+        }
+        
+        public System.Threading.Tasks.Task<VRS.AdminApp.VRSServiceReference.Result> CreateRentAsync(VRS.AdminApp.VRSServiceReference.RentDTO rent) {
+            return base.Channel.CreateRentAsync(rent);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

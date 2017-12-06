@@ -7,11 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid x:Name="background" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid x:Name="background" RequestedTheme="Light">
+        <Image x:Name="imageBackground" Source="Assets/image.jpg"></Image>
         <Grid x:Name="panel"  Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBox x:Name="tbUsername" HorizontalAlignment="Center" Margin="0,150,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="0.444,-2.812" Width="251" PlaceholderText="Username"/>
-            <TextBlock x:Name="tbTitle" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="391" SelectionChanged="TextBlock_SelectionChanged" FontSize="48">
+            <TextBlock x:Name="tbTitle" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="62" Width="391" FontSize="48">
                 <Run Text="VRS Admin"/>
                 <LineBreak/>
                 <Run/>

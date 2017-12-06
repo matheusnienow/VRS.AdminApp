@@ -116,7 +116,7 @@
                 </ListView>
             </PivotItem>
             <PivotItem Header="Vehicles">
-                <ListView Name="vehilesListView"  Grid.Row="2"  IsItemClickEnabled="False" Margin="0,0,0,10">
+                <ListView Name="vehilesListView"  Grid.Row="2"  IsItemClickEnabled="True" ItemClick="VehilesListView_ItemClick" Margin="0,0,0,10">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -203,7 +203,7 @@
             </PivotItem>
             <Pivot.RightHeader>
                 <CommandBar OverflowButtonVisibility="Collapsed" Background="Transparent">
-                    <AppBarButton Icon="Add"/>
+                    <AppBarButton x:Name="addButton" Icon="Refresh" Click="RefreshButton_Click"/>
                 </CommandBar>
             </Pivot.RightHeader>
         </Pivot>

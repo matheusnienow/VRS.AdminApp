@@ -28,18 +28,9 @@ namespace VRS.AdminApp
         public LoginPage()
         {
             this.InitializeComponent();
-            background.Background = new ImageBrush {
-                ImageSource = new BitmapImage(new Uri(this.BaseUri, "Assets/login_background.jpg")),
-                Stretch = Stretch.None
-            };
-
-            panel.Background = new SolidColorBrush(Color.FromArgb(80, 255, 255, 255));
             controller = new LoginController();
-        }
 
-        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-
+            imageBackground.Source = new BitmapImage(new Uri(this.BaseUri, "Assets/login_background.jpg"));
         }
 
         private async void BtLogin_Click(object sender, RoutedEventArgs e)
